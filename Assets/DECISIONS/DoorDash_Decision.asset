@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c14debd501a47459302f54cca789bb, type: 3}
+  m_Name: DoorDash_Decision
+  m_EditorClassIdentifier: 
+  decisionID: hi
+  question: e
+  option1Text: live + 50
+  option2Text: option 2
+  option1MoneyImpact: -50
+  option2MoneyImpact: 10
+  option1Feedback: "you get to live\t"
+  option2Feedback: die
+  affectsLongTerm: 0
