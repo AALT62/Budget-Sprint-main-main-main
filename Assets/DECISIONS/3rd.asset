@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c14debd501a47459302f54cca789bb, type: 3}
   m_Name: 3rd
   m_EditorClassIdentifier: 
-  decisionID: 3
-  question: 3
-  option1Text: test 3
-  option2Text: test -50
-  option1MoneyImpact: 0
-  option2MoneyImpact: -50
-  option1Feedback: rahh
-  option2Feedback: rahh
-  affectsLongTerm: 0
+  decisionID: SecondInvestment
+  question: "Invest but another decision id\t"
+  option1Text: invest 500
+  option2Text: invest 0
+  option1MoneyImpact: -500
+  option2MoneyImpact: 0
+  option1Feedback: '${amount} invested, expected interest: ${interest} in {years}
+    years'
+  option2Feedback: cheap fuck, {amount}?
+  affectsLongTerm: 1

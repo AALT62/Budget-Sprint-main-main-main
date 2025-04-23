@@ -14,8 +14,8 @@ public class DecisionZone : MonoBehaviour
                 laneMover.isPaused = true;
             }
 
-            GameUIManager.Instance.ShowPopup(decisionToLoad); // LOAD THE CORRECT DECISION
-            gameObject.SetActive(false); // Disable zone so it doesn't trigger again
+            GameUIManager.Instance.ShowPopup(decisionToLoad);
+            gameObject.SetActive(false);
         }
     }
 }

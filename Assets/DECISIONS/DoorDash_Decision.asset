@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c14debd501a47459302f54cca789bb, type: 3}
   m_Name: DoorDash_Decision
   m_EditorClassIdentifier: 
-  decisionID: hi
-  question: e
-  option1Text: live + 50
-  option2Text: option 2
+  decisionID: DoorDash
+  question: Order Takeout?
+  option1Text: take $50
+  option2Text: nothing
   option1MoneyImpact: -50
-  option2MoneyImpact: 10
-  option1Feedback: "you get to live\t"
-  option2Feedback: die
+  option2MoneyImpact: 0
+  NON_INVEST_option1Feedback: "NON INVESTED OPTION 1\t"
+  NON_INVEST_option2Feedback: NON INVESTED OPTION 2
   affectsLongTerm: 0
+  option1Feedback: 
+  option2Feedback: 

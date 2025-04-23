@@ -12,4 +12,7 @@ public class DecisionData : ScriptableObject
     [TextArea] public string option1Feedback;
     [TextArea] public string option2Feedback;
     public bool affectsLongTerm; // For IRA/investments
+
+
+
 }

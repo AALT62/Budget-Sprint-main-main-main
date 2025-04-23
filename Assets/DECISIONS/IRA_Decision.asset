@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: IRA_Decision
   m_EditorClassIdentifier: 
   decisionID: IRA_Monthly
-  question: Invest $50/month in an IRA (7% annual growth)?
-  option1Text: Invest (-$50)
-  option2Text: Keep cash
-  option1MoneyImpact: -50
+  question: Invest in an IRA (7% annual growth)
+  option1Text: give 200 to snp
+  option2Text: nothing
+  option1MoneyImpact: -200
   option2MoneyImpact: 0
-  option1Feedback: 'Future you will thank you! Projected growth: $X in 1 year'
-  option2Feedback: "You\u2019ll miss out on compound interest."
+  NON_INVEST_option1Feedback: 
+  NON_INVEST_option2Feedback: 
   affectsLongTerm: 1
+  option1Feedback: You invested ${amount}. It may grow to {interest} in {years} years!
+  option2Feedback: Really, ${amount}?

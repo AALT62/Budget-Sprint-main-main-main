@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6929907563129374816}
   - component: {fileID: 8923064610652421545}
   - component: {fileID: 1589305489148420037}
-  - component: {fileID: 6015826991954795445}
   - component: {fileID: 4720334072710330902}
   m_Layer: 0
   m_Name: DecisionZone
@@ -110,18 +109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6015826991954795445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9014482423428880794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb003307c7d63640bfb3d8ae66f38b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4720334072710330902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb01257e54747704196da906651f7105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: What's 9 + 10
-  optionA: 19
-  optionB: 21
-  costA: 0
-  costB: 1
+  decisionToLoad: {fileID: 0}

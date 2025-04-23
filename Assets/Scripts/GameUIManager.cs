@@ -19,6 +19,14 @@ public class GameUIManager : MonoBehaviour
     public GameObject feedbackPanel;
     public TMP_Text feedbackText;
 
+
+    public Button[] optionButtons;
+    public TMP_Text totalInterestText; // Text that shows at the Goal
+
+
+
+
+
     [Header("Interest Settings")]
     public float annualInterestRate = 0.08f;
     public int interestYears = 5;
@@ -65,6 +73,15 @@ public class GameUIManager : MonoBehaviour
             ShowFormattedFeedback(false);
             ResumePlayer();
         });
+
+
+
+
+
+
+
+
+
     }
 
     public void UpdateMoneyDisplay(int money, int longTermValue)
@@ -80,19 +97,22 @@ public class GameUIManager : MonoBehaviour
         if (!isEndGame) Invoke(nameof(HideFeedback), 3f);
     }
 
-    private void ShowFormattedFeedback(bool option1)
+    private void ShowFormattedFeedback(bool choseOption1)
     {
         if (currentDecision == null) return;
 
-        int moneyImpact = option1 ? currentDecision.option1MoneyImpact : currentDecision.option2MoneyImpact;
-        string rawFeedback = option1 ? currentDecision.option1Feedback : currentDecision.option2Feedback;
+        int moneyImpact = choseOption1 ? currentDecision.option1MoneyImpact : currentDecision.option2MoneyImpact;
+        string rawFeedback = choseOption1 ? currentDecision.option1Feedback : currentDecision.option2Feedback;
 
+        // Replace {amount}
         string result = rawFeedback.Replace("{amount}", Mathf.Abs(moneyImpact).ToString());
 
-        if (currentDecision.affectsLongTerm && option1 && moneyImpact > 0)
+        // Replace {interest} and {years} for investments on Option 1 only
+        if (currentDecision.affectsLongTerm && choseOption1)
         {
-            float compound = CalculateCompoundInterest(moneyImpact);
-            result = result.Replace("{interest}", $"${compound:F2}");
+            float interestValue = CalculateCompoundInterest(Mathf.Abs(moneyImpact));
+            result = result.Replace("{interest}", $"${interestValue:F2}");
+            result = result.Replace("{years}", interestYears.ToString());
         }
 
         ShowFeedback(result);
@@ -119,4 +139,23 @@ public class GameUIManager : MonoBehaviour
     }
 
     private void HideFeedback() => feedbackPanel.SetActive(false);
+
+    public void ShowTotalInterestFromLongTerm()
+    {
+        // Remove non-numeric chars and parse the value from longTermText ("Investments: $123")
+        string numeric = longTermText.text.Replace("Investments:", "").Replace("$", "").Trim();
+
+        if (int.TryParse(numeric, out int longTermValue))
+        {
+            float totalInterest = longTermValue * Mathf.Pow(1 + annualInterestRate, interestYears);
+            totalInterestText.text = $"Total Interest Earned: ${totalInterest:F2}";
+            totalInterestText.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Failed to parse investment value from longTermText"); 
+        }
+    }
+
+
 }
